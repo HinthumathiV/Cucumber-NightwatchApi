@@ -1,0 +1,25 @@
+{
+  "name": "greythr_login_cucumber_nightwatch-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:@Greythrportallogin": "cucumber-js --require cucumber.conf.js --require features/step_definitions/greythrloginsteps.js --format @cucumber/pretty-formatter --publish-quiet"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "chromedriver": "^131.0.4",
+    "selenium": "^2.20.0",
+    "selenium-webdriver": "^4.27.0"
+    
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.3.2",
+    "@cucumber/pretty-formatter": "^1.0.0",
+    "cucumber": "^6.0.7",
+    "nightwatch-api": "^3.0.2"
+  },
+  "description": ""
+}
