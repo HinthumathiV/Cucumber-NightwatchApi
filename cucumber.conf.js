@@ -9,6 +9,6 @@ BeforeAll(async () => {
 });
 
 AfterAll(async () => {
-  await closeSession();
-  await stopWebDriver();
+ // await closeSession();
+ // await stopWebDriver();
 });

@@ -3,17 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:@Greythrportallogin": "cucumber-js --require cucumber.conf.js --require features/step_definitions/greythrloginsteps.js --format @cucumber/pretty-formatter --publish-quiet"
+    "test:@Greythrportallogin": "cucumber-js --require cucumber.conf.js --require features/step_definitions/greythrloginsteps.js --format @cucumber/pretty-formatter --publish-quiet",
+    "test:@Amazonlogin": "cucumber-js --require cucumber.conf.js --require features/step_definitions/amazonloginsteps.js --format @cucumber/pretty-formatter --publish-quiet "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "assert": "^2.1.0",
+    "chai": "^5.1.2",
     "chromedriver": "^131.0.4",
     "selenium": "^2.20.0",
     "selenium-webdriver": "^4.27.0"
-    
   },
   "devDependencies": {
     "@cucumber/cucumber": "^7.3.2",

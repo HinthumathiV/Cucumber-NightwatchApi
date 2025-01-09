@@ -1,5 +1,6 @@
-const { Given, When, Before, After} = require("@cucumber/cucumber");
+const { Given, When, Then} = require("@cucumber/cucumber");
 const { client } = require("nightwatch-api");
+const path = require('path');
 // const { Builder,By } = require("selenium-webdriver");
 // const { get } = require("selenium-webdriver/http");
  const assert = require('assert');
@@ -8,6 +9,9 @@ const { client } = require("nightwatch-api");
 // let driver = new Builder().forBrowser("chrome").build();
 // driver.manage().window().maximize();
 
+// Ensure the path is correctly specified
+
+const featurePath = path.relative(__dirname, '../../features');
 
         Given('User on the Greythr login page', async ()=> {
             await client
@@ -33,7 +37,7 @@ const { client } = require("nightwatch-api");
          When('User should click the Login button', async () => {
             await client.waitForElementVisible('button[type="submit"]', 10000);
             await client.execute(function() {
-              document.querySelector('button[type="submit"]').click();
+           document.querySelector('button[type="submit"]').click();
         });
         await client.pause(5000);
 });
