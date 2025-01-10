@@ -1,6 +1,7 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 const { client } = require("nightwatch-api");
 const{assert} = require('assert');
+const { Driver } = require("selenium-webdriver/chrome");
 
 
          Given('User on the Amazon login page',async()=> {
@@ -43,50 +44,60 @@ const{assert} = require('assert');
               .pause(2000);
           });
  
-    
- 
-          Then('User click on the cart icon to view the cart', async ()=> {
+         Then('User click on the cart icon to view the cart', async ()=> {
             await client
            .waitForElementVisible('#nav-cart', 5000)      // Wait for the cart icon
             .click('#nav-cart');      
-            
-          });
+            });
 
           Then('User should see the cart page', async ()=> {
             await client
             .assert.containsText('.sc-cart-header', 'Shopping Cart'); 
           });
- 
-    
- 
-        //   Then('User should switch to the cart window', function () {
-        //     return client
-        //     .windowHandles(function(result) {
-        //         const handles = result.value;
-        //         if (handles.length >= 2) {
-        //             // Switch to the second window (the new tab)
-        //             client.switchWindow(handles[1]);
-        //           } else {
-        //             throw new Error('No second window found.');
-        //           }
-        //         })
-        //         .waitForElementVisible('body', 5000);  // Wait to make sure the cart page is visible
-        //     });
-           
-        
-         Then('User click the proceed to pay button', async ()=> {
-            await client
-            .waitForElementVisible('//button[text()="Proceed to checkout"]',2000)
-            .click('//button[text()="Proceed to checkout"]');          
+
+        Then('User click the proceed to pay button', async()=> {
+      await client
+         .waitForElementVisible('#sc-buy-box-ptc-button', 20000)
+         .click('#sc-buy-box-ptc-button')
+         .pause(2000);
+
+        });
+
+       Then('User enter the {string} in the textbox', async (emailId)=>{
+      await client
+      .waitForElementPresent("input[name='email']",10000)
+      .setValue("input[name='email']", emailId);
+      
+      });
+
+     Then('User click the continue button', async ()=> {
+      await client
+      .waitForElementVisible('.a-button-input',4000)
+      //.pause(7000)
+      .click('.a-button-input');
+          
          });
-   
-        
-        
+
+        //  Then('verify the error message', async()=> {
+        //   await client
+        // .waitForElementVisible('#auth-error-message-box',20000)
+        // .assert.containsText('#auth-error-message-box','There was a problem')
+        // });
 
         
+        // Then('User navigates to the previous window', function () {
+        //   return client.windowHandles(function(result){
+
+        //     if (result.value.length>1) {
+        //       client.switchwindow(result.value[0]);
+        //     } else {
+        //       console.error('Original window not found');s
+        //     }
+        //   })
+         
+        // });
+
     
-       
  
 
-
-
+       

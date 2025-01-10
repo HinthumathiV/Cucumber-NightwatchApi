@@ -38,6 +38,7 @@ const featurePath = path.relative(__dirname, '../../features');
             await client.waitForElementVisible('button[type="submit"]', 10000);
             await client.execute(function() {
            document.querySelector('button[type="submit"]').click();
+
         });
         await client.pause(5000);
 });
